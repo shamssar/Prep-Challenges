@@ -22,8 +22,11 @@
 
 const objLat = (obj) => {
         // write your code here
-    return`my name is ${obj.firstName.slice(0,1).toUpperCase()+obj.firstName.slice(1,).toLowerCase()} ${obj.lastName.slice(0,1).toUpperCase()+obj.lastName.slice(1,).toLowerCase()} I am ${obj.age} YO, ${obj.hobby}.`
-};
+        const first = obj.firstName.charAt(0).toUpperCase() + obj.firstName.slice(1);
+        const last = obj.lastName.charAt(0).toUpperCase() + obj.lastName.slice(1);
+        const full = `my name is ${first} ${last} I am ${obj.age} YO, and I love ${obj.hobby}.`
+        return full;
+    };
 
 
 
@@ -90,15 +93,15 @@ const objLat = (obj) => {
 const cvFormatter = (arr) => {
     // write your code here
     
-    let add=arr
-    add=cvs.filter((a)=>a.yearsOfExperience>1).map(function({firstName,lastName}){
+    
+    let  add=arr.filter((a)=>a.yearsOfExperience>1).map(function({firstName,lastName,tech}){
         return {
-            fullName:`${lastName===null?firstName:`${firstName} ${lastName}`}}`
+            fullName:`${lastName===null?firstName:`${firstName} ${lastName}`}`,
+            tech: tech
         }
     })
     return add    
 };
-   
 
 // -------------------------------------------------------------------------------------------------------
 
